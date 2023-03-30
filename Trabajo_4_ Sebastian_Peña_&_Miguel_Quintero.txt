@@ -1,0 +1,47 @@
+	Juan Sebastian Peña Mora
+	Miguel Angel Quintero Lopez
+	
+	
+	/* TASK */
+/*1*/ select sysdate from dual;
+
+/*2*/ SELECT employee_id, last_name, salary, salary+(salary*0.155) AS "New Salary"
+			FROM hr.employees;
+
+/*3*/ SELECT employee_id, last_name, salary, salary+(salary*0.155) AS "New Salary"
+			FROM hr.employees;
+
+/*4*/ SELECT employee_id, last_name, salary, salary+(salary*0.155) AS "New Salary", 
+    		(salary+(salary*0.155))-salary AS "Increase"
+			FROM hr.employees;
+/*5*/
+	/*a)*/ select LAST_NAME "Name", length(LAST_NAME) "Length"
+				from hr.EMPLOYEES
+				where LAST_NAME like 'J%'
+				or LAST_NAME like 'A%'
+				or LAST_NAME like 'M%';
+
+	/*b)*/ select LAST_NAME "Name", length(LAST_NAME) "Length"
+				from hr.EMPLOYEES
+				where LAST_NAME like 'H%';
+
+	/*c)*/ select LAST_NAME "Name", length(LAST_NAME) "Length"
+				from hr.EMPLOYEES
+				where LAST_NAME like '&init_letter%';
+        
+/*6*/ SELECT last_name, ROUND(months_between(sysdate, hire_date)) AS "MONTHS_WORKED"
+			FROM hr.employees
+    		ORDER BY 2;
+
+			
+/*7*/ SELECT LAST_NAME, lpad(SALARY,15,'$' ) AS SALARY
+    		FROM hr.EMPLOYEES;
+
+/*8*/ SELECT RPAD(last_name, 8)||''||RPAD(' ', salary/1000, '*') AS "EMPLOYEES_AND_THEIR_SALARIES"
+			FROM hr.employees
+			ORDER BY salary desc;
+
+/*9*/ select LAST_NAME, round((sysdate - hire_date) / 7) TENURE
+			from hr.EMPLOYEES, dual
+			where DEPARTMENT_ID = 90
+			order by 2 desc;
